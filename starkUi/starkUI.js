@@ -653,7 +653,7 @@ function _application_(props={}){
     }
 }
 
-const StarkUi = {
+const StarkUI = {
     Class: _create_class_,
     Component: _create_component_,
     InstanceReference:_create_instance_reference_,

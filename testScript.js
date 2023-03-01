@@ -5,7 +5,7 @@ const {
     ListItem,Link,Layout,Label,MenuItem,Menu,MenuBar,MonthInput,NumberInput,NavigationBar,OptionItem,OrderedList,ProgressBar,Paragraph,PasswordInput,ProgressIndicator,Render,RelativeLayout,RadioGroup,
     RadioButton,RadialGradient,Store,ShowTooltip,ShowToast,ShowMessageDialog,ShowInputDialog,ShowDialog,ShowConfirmDialog,Slider,Switch,SelectionView,ScrollWindow,TimeInput,TextInput,TextArea,TableRow,
     TableHeading,TableHeader,TableFooter,TableData,TableBody,Table,TabbedWindow,TabbedView,UnorderedList,VideoView,VerticalLayout,VerticalScrollWindow,WeekInput
-} =StarkUiComponents;
+} =StarkUIComponents;
 
 function WidthFiller(){
     return FlowLayout({

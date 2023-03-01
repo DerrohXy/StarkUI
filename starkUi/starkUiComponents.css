@@ -18,73 +18,73 @@
 
 @keyframes stark-ui-slide-in-left {
     from {
-        margin-right: 100%;
+        margin-left: -100%;
     }
     to {
-        margin-right: 0%;
+        margin-left: 0%;
     }
 }
 
 @keyframes stark-ui-slide-out-left {
     from {
-        margin-right: 0%;
+        margin-left: 0%;
     }
     to {
-        margin-right: 1000%;
+        margin-left: -100%;
     }
 }
 
 @keyframes stark-ui-slide-in-right {
     from {
-        margin-left: 100%;
+        margin-right: -100%;
     }
     to {
-        margin-left: 0%;
+        margin-right: 0%;
     }
 }
 
 @keyframes stark-ui-slide-out-right {
     from {
-        margin-left: 0%;
+        margin-right: 0%;
     }
     to {
-        margin-left: 100%;
+        margin-right: -100%;
     }
 }
 
 @keyframes stark-ui-slide-in-top {
     from {
-        margin-bottom: 100%;
+        margin-top: -100%;
     }
     to {
-        margin-bottom: 0%;
+        margin-top: 0%;
     }
 }
 
 @keyframes stark-ui-slide-out-top {
     from {
-        margin-bottom: 0%;
+        margin-top: 0%;
     }
     to {
-        margin-bottom: 100%;
+        margin-top: -100%;
     }
 }
 
 @keyframes stark-ui-slide-in-bottom {
     from {
-        margin-top: 100%;
+        margin-bottom: -100%;
     }
     to {
-        margin-top: 0%;
+        margin-bottom: 0%;
     }
 }
 
 @keyframes stark-ui-slide-out-bottom {
     from {
-        margin-top: 0%;
+        margin-bottom: 0%;
     }
     to {
-        margin-top: 100%;
+        margin-bottom: -100%;
     }
 }
 
@@ -100,32 +100,96 @@
     animation: stark-ui-slide-in-left 1s linear 0s 1 forwards;
 }
 
+.-stark-ui-slide-in-left-slow- {
+    animation: stark-ui-slide-in-left 1.5s linear 0s 1 forwards;
+}
+
+.-stark-ui-slide-in-left-fast- {
+    animation: stark-ui-slide-in-left 0.5s linear 0s 1 forwards;
+}
+
 .-stark-ui-slide-out-left- {
     animation: stark-ui-slide-out-left 1s linear 0s 1 forwards;
+}
+
+.-stark-ui-slide-out-left-slow- {
+    animation: stark-ui-slide-out-left 1.5s linear 0s 1 forwards;
+}
+
+.-stark-ui-slide-out-left-fast- {
+    animation: stark-ui-slide-out-left 0.5s linear 0s 1 forwards;
 }
 
 .-stark-ui-slide-in-right- {
     animation: stark-ui-slide-in-right 1s linear 0s 1 forwards;
 }
 
+.-stark-ui-slide-in-right-slow- {
+    animation: stark-ui-slide-in-right 1.5s linear 0s 1 forwards;
+}
+
+.-stark-ui-slide-in-right-fast- {
+    animation: stark-ui-slide-in-right 0.5s linear 0s 1 forwards;
+}
+
 .-stark-ui-slide-out-right- {
     animation: stark-ui-slide-out-right 1s linear 0s 1 forwards;
+}
+
+.-stark-ui-slide-out-right-slow- {
+    animation: stark-ui-slide-out-right 1.5s linear 0s 1 forwards;
+}
+
+.-stark-ui-slide-out-right-fast- {
+    animation: stark-ui-slide-out-right 0.5s linear 0s 1 forwards;
 }
 
 .-stark-ui-slide-in-top- {
     animation: stark-ui-slide-in-top 1s linear 0s 1 forwards;
 }
 
+.-stark-ui-slide-in-top-slow- {
+    animation: stark-ui-slide-in-top 1.5s linear 0s 1 forwards;
+}
+
+.-stark-ui-slide-in-top-fast- {
+    animation: stark-ui-slide-in-top 0.5s linear 0s 1 forwards;
+}
+
 .-stark-ui-slide-out-top- {
     animation: stark-ui-slide-out-top 1s linear 0s 1 forwards;
+}
+
+.-stark-ui-slide-out-top-slow- {
+    animation: stark-ui-slide-out-top 1.5s linear 0s 1 forwards;
+}
+
+.-stark-ui-slide-out-top-fast- {
+    animation: stark-ui-slide-out-top 0.5s linear 0s 1 forwards;
 }
 
 .-stark-ui-slide-in-bottom- {
     animation: stark-ui-slide-in-bottom 1s linear 0s 1 forwards;
 }
 
+.-stark-ui-slide-in-bottom-slow- {
+    animation: stark-ui-slide-in-bottom 1.5s linear 0s 1 forwards;
+}
+
+.-stark-ui-slide-in-bottom-fast- {
+    animation: stark-ui-slide-in-bottom 0.5s linear 0s 1 forwards;
+}
+
 .-stark-ui-slide-out-bottom- {
     animation: stark-ui-slide-out-bottom 1s linear 0s 1 forwards;
+}
+
+.-stark-ui-slide-out-bottom-slow- {
+    animation: stark-ui-slide-out-bottom 1.5s linear 0s 1 forwards;
+}
+
+.-stark-ui-slide-out-bottom-fast- {
+    animation: stark-ui-slide-out-bottom 0.5s linear 0s 1 forwards;
 }
 
 * {
@@ -428,8 +492,7 @@ textarea {
     height: fit-content;
 }
 
-.-stark-ui-menu-active-,
-.-stark-ui-menu-:hover {
+.-stark-ui-menu-active- {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -567,8 +630,7 @@ textarea {
     overflow-x: auto;
 }
 
-.-stark-ui-tab-active-,
-.-stark-ui-tab-inactive-:hover {
+.-stark-ui-tab-active- {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -644,6 +706,7 @@ textarea {
     border-radius: 5px;
     background-color: darkslategray;
     color: white;
+    animation: stark-ui-slide-in-bottom 0.5s linear 0s 1 forwards;
 }
 
 .-stark-ui-ordered-list-{
