@@ -234,7 +234,7 @@ const _events_ = {
         RASPBERRY: "#8A307F",
     };
 
-const ACS={
+const _animation_classes_={
     STARK_UI_PULSATING:"",
     STARK_UI_SPINNING:"",
     STARK_UI_SLIDE_IN_LEFT:"",
@@ -263,8 +263,8 @@ const ACS={
     STARK_UI_SLIDE_OUT_BOTTOM_FAST:"",
 }
 
-const CLS={
-    ...ACS,
+const _classes_={
+    ..._animation_classes_,
     STARK_UI_HIDDEN:"",
     STARK_UI_BUTTON:"",
     STARK_UI_LABEL:"",
@@ -382,7 +382,7 @@ const _linear_gradient_directions_ = {
 }
 
 function _initialize_classes_(){
-    Object.keys(CLS).map((key)=>{
+    Object.keys(_classes_).map((key)=>{
         let replace=(string="",x="",y="")=>{
             let newString=string;
             while(true){
@@ -394,13 +394,13 @@ function _initialize_classes_(){
             }
             return newString;
         }
-        CLS[key]="-"+replace(key,"_","-").toLowerCase()+"-";
+        _classes_[key]="-"+replace(key,"_","-").toLowerCase()+"-";
     });
 }
 
 function _disable_animations_(){
-    Object.keys(ACS).map((key)=>{
-        CLS[key]="_X_"
+    Object.keys(_animation_classes_).map((key)=>{
+        _classes_[key]="_X_"
     });
 }
 
@@ -534,21 +534,21 @@ function _toggle_visibility_(element) {
     if(_is_null_(element)){
         return
     }
-    return element.classList.toggle(CLS.STARK_UI_HIDDEN);
+    return element.classList.toggle(_classes_.STARK_UI_HIDDEN);
 }
 
 function _hide_element_(element) {
     if(_is_null_(element)){
         return
     }
-    element.classList.add(CLS.STARK_UI_HIDDEN)
+    element.classList.add(_classes_.STARK_UI_HIDDEN)
 }
 
 function _show_element_(element) {
     if(_is_null_(element)){
         return
     }
-    element.classList.remove(CLS.STARK_UI_HIDDEN)
+    element.classList.remove(_classes_.STARK_UI_HIDDEN)
 }
 
 function _load_custom_props_(default_props = {}, props = {}) {
@@ -577,7 +577,7 @@ function _label_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_LABEL);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_LABEL);
     return _s_cmp_("span", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -585,7 +585,7 @@ function _paragraph_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_PARAGRAPH);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_PARAGRAPH);
     return _s_cmp_("p", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -593,7 +593,7 @@ function _icon_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_ICON);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_ICON);
     return _s_cmp_("i", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -601,7 +601,7 @@ function _heading_1_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_HEADING);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_HEADING);
     return _s_cmp_("h1", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -609,7 +609,7 @@ function _heading_2_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_HEADING);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_HEADING);
     return _s_cmp_("h2", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -617,7 +617,7 @@ function _heading_3_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_HEADING);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_HEADING);
     return _s_cmp_("h3", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -625,7 +625,7 @@ function _heading_4_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_HEADING);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_HEADING);
     return _s_cmp_("h4", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -633,7 +633,7 @@ function _heading_5_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_HEADING);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_HEADING);
     return _s_cmp_("h5", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -641,7 +641,7 @@ function _heading_6_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_HEADING);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_HEADING);
     return _s_cmp_("h6", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -649,7 +649,7 @@ function _button_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_BUTTON);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_BUTTON);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -657,7 +657,7 @@ function _link_(props = {}) {
     let properties = _load_custom_props_({
         href: "#"
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_LINK);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_LINK);
     return _s_cmp_("a", Object.assign(properties, { key: _get_random_string_() }), properties.component || properties.text);
 }
 
@@ -665,7 +665,7 @@ function _text_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "text"
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_TEXT_INPUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_TEXT_INPUT);
     return _s_cmp_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -673,7 +673,7 @@ function _file_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "file"
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_FILE_INPUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_FILE_INPUT);
     return _s_cmp_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -681,7 +681,7 @@ function _password_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "password"
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_PASSWORD_INPUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_PASSWORD_INPUT);
     return _s_cmp_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -689,7 +689,7 @@ function _number_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "number"
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_NUMBER_INPUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_NUMBER_INPUT);
     return _s_cmp_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -697,7 +697,7 @@ function _color_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "color"
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_COLOR_INPUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_COLOR_INPUT);
     return _s_cmp_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -705,7 +705,7 @@ function _date_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "date"
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_DATE_INPUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_DATE_INPUT);
     return _s_cmp_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -713,7 +713,7 @@ function _datetime_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "datetime"
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_DATETIME_INPUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_DATETIME_INPUT);
     return _s_cmp_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -721,7 +721,7 @@ function _month_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "month"
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_MONTH_INPUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_MONTH_INPUT);
     return _s_cmp_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -729,7 +729,7 @@ function _week_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "week"
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_WEEK_INPUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_WEEK_INPUT);
     return _s_cmp_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -737,13 +737,13 @@ function _time_input_(props = {}) {
     let properties = _load_custom_props_({
         type: "time"
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_TIME_INPUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_TIME_INPUT);
     return _s_cmp_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
 function _text_area_(props = {}) {
     let properties = _load_custom_props_({}, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_TEXT_AREA);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_TEXT_AREA);
     return _s_cmp_("textarea", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -752,7 +752,7 @@ function _switch_(props = {}) {
         onSwitched: () => { },
         id: _get_random_string_()
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_SWITCH);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_SWITCH);
     let toggle_id = _get_random_string_(),
         get_toggle_element=()=>{
             return _element_loader_.fromId(toggle_id);
@@ -763,12 +763,12 @@ function _switch_(props = {}) {
         toggle_switch = (event) => {
             let toggle = get_toggle_element(),
                 switch_ = get_switch_element(),
-                current_class = _toggle_classes_(toggle, CLS.STARK_UI_SWITCH_TOGGLE_ACTIVE, CLS.STARK_UI_SWITCH_TOGGLE_INACTIVE),
+                current_class = _toggle_classes_(toggle, _classes_.STARK_UI_SWITCH_TOGGLE_ACTIVE, _classes_.STARK_UI_SWITCH_TOGGLE_INACTIVE),
                 active = !current_class.includes("inactive");
             if (active) {
-                _replace_class_(switch_, CLS.STARK_UI_SWITCH, CLS.STARK_UI_SWITCH_ACTIVE);
+                _replace_class_(switch_, _classes_.STARK_UI_SWITCH, _classes_.STARK_UI_SWITCH_ACTIVE);
             } else {
-                _replace_class_(switch_, CLS.STARK_UI_SWITCH_ACTIVE, CLS.STARK_UI_SWITCH);
+                _replace_class_(switch_, _classes_.STARK_UI_SWITCH_ACTIVE, _classes_.STARK_UI_SWITCH);
             }
             properties.onSwitched(active);
         }
@@ -778,7 +778,7 @@ function _switch_(props = {}) {
             toggle_switch(event);
         }
     }), _s_cmp_("div", {
-        className: CLS.STARK_UI_SWITCH_TOGGLE_INACTIVE,
+        className: _classes_.STARK_UI_SWITCH_TOGGLE_INACTIVE,
         id: toggle_id
     }, null));
 }
@@ -787,7 +787,7 @@ function _image_view_(props = {}) {
     let properties = _load_custom_props_({
         src: "#"
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_IMAGE_VIEW);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_IMAGE_VIEW);
     return _s_cmp_("img", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -795,7 +795,7 @@ function _video_view_(props = {}) {
     let properties = _load_custom_props_({
         controls: true
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_VIDEO_VIEW);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_VIDEO_VIEW);
     return _s_cmp_("video", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -803,19 +803,19 @@ function _audio_view_(props = {}) {
     let properties = _load_custom_props_({
         controls: true
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_AUDIO_VIEW);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_AUDIO_VIEW);
     return _s_cmp_("audio", Object.assign(properties, { key: _get_random_string_() }));
 }
 
 function _progress_bar_(props = {}) {
     let properties = _load_custom_props_({}, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_PROGRESS_BAR);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_PROGRESS_BAR);
     return _s_cmp_("progress", Object.assign(properties, { key: _get_random_string_() }));
 }
 
 function _progress_indicator_(props = {}) {
     let properties = _load_custom_props_({}, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_PROGRESS_INDICATOR);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_PROGRESS_INDICATOR);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -823,7 +823,7 @@ function _selection_view_(props = {}) {
     let properties = _load_custom_props_({
         optionItems: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_SELECTION_VIEW);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_SELECTION_VIEW);
     return _s_cmp_("select", Object.assign(properties, { key: _get_random_string_() }), ...properties.optionItems);
 }
 
@@ -831,7 +831,7 @@ function _option_item_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_OPTION_ITEM);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_OPTION_ITEM);
     return _s_cmp_("option", Object.assign(properties, { key: _get_random_string_() }), properties.text);
 }
 
@@ -839,7 +839,7 @@ function _slider_(props = {}) {
     let properties = _load_custom_props_({
         type: "range"
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_SLIDER);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_SLIDER);
     return _s_cmp_("input", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -847,9 +847,9 @@ function _check_button_(props = {}) {
     let properties = _load_custom_props_({
         type: "checkbox",
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_CHECK_BUTTON_CHECK_BOX);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_CHECK_BUTTON_CHECK_BOX);
     return _s_cmp_("div", {
-            className: CLS.STARK_UI_CHECK_BUTTON,
+            className: _classes_.STARK_UI_CHECK_BUTTON,
             key: _get_random_string_(),
             style: properties.style
         },
@@ -861,9 +861,9 @@ function _radio_button_(props = {}) {
     let properties = _load_custom_props_({
         type: "radio",
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_RADIO_BUTTON_CHECK_BOX);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_RADIO_BUTTON_CHECK_BOX);
     return _s_cmp_("div", {
-            className: CLS.STARK_UI_RADIO_BUTTON,
+            className: _classes_.STARK_UI_RADIO_BUTTON,
             key: _get_random_string_(),
             style: properties.style
         },
@@ -875,7 +875,7 @@ function _radio_group_(props = {}) {
     let properties = _load_custom_props_({
         radioButtons: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_RADIO_GROUP);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_RADIO_GROUP);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.radioButtons.map((button) => {
         return _radio_button_(button);
     }));
@@ -885,7 +885,7 @@ function _menu_item_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_MENU_ITEM);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_MENU_ITEM);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), properties.component || properties.text);
 }
 
@@ -895,7 +895,7 @@ function _menu_(props = {}) {
         text: "",
         id: _get_random_string_(),
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_MENU);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_MENU);
     let dropdown_id = _get_random_string_(),
         get_menu_element=()=>{
             return _element_loader_.fromId(properties.id);
@@ -908,16 +908,16 @@ function _menu_(props = {}) {
                 dropdown = get_dropdown_element(),
                 hidden = _toggle_visibility_(dropdown);
             if (hidden === true) {
-                _replace_class_(menu, CLS.STARK_UI_MENU_ACTIVE, CLS.STARK_UI_MENU);
+                _replace_class_(menu, _classes_.STARK_UI_MENU_ACTIVE, _classes_.STARK_UI_MENU);
             } else {
-                _replace_class_(menu, CLS.STARK_UI_MENU, CLS.STARK_UI_MENU_ACTIVE);
+                _replace_class_(menu, _classes_.STARK_UI_MENU, _classes_.STARK_UI_MENU_ACTIVE);
             }
         },
         close_menu = (event) => {
             let menu = get_menu_element(),
                 dropdown = get_dropdown_element();
             _hide_element_(dropdown);
-            _replace_class_(menu, CLS.STARK_UI_MENU_ACTIVE, CLS.STARK_UI_MENU);
+            _replace_class_(menu, _classes_.STARK_UI_MENU_ACTIVE, _classes_.STARK_UI_MENU);
         },
         dropdown_content = properties.menuComponent ? [properties.menuComponent] : properties.menuItems;
     window.addEventListener(_WINDOW_CLICK_EVENT_, (event) => {
@@ -935,7 +935,7 @@ function _menu_(props = {}) {
         }),
         properties.component || properties.text,
         _s_cmp_("div", {
-            className: [CLS.STARK_UI_MENU_DROPDOWN,CLS.STARK_UI_HIDDEN].join(" "),
+            className: [_classes_.STARK_UI_MENU_DROPDOWN,_classes_.STARK_UI_HIDDEN].join(" "),
             id: dropdown_id
         }, ...dropdown_content));
 }
@@ -944,7 +944,7 @@ function _menu_bar_(props = {}) {
     let properties = _load_custom_props_({
         menus: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_MENU_BAR);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_MENU_BAR);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.menus);
 }
 
@@ -952,7 +952,7 @@ function _tabbed_window_(props = {}) {
     let properties = _load_custom_props_({
         tabs: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_TABBED_WINDOW);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_TABBED_WINDOW);
     let title_bar_id = _get_random_string_(),
         content_area_id = _get_random_string_(),
         get_title_bar_element=()=>{
@@ -967,9 +967,9 @@ function _tabbed_window_(props = {}) {
             for (let x = 0; x < title_bar.childElementCount; ++x) {
                 let child = title_bar.children.item(x);
                 if (index === x) {
-                    _replace_class_(child, CLS.STARK_UI_TAB_INACTIVE, CLS.STARK_UI_TAB_ACTIVE);
+                    _replace_class_(child, _classes_.STARK_UI_TAB_INACTIVE, _classes_.STARK_UI_TAB_ACTIVE);
                 } else {
-                    _replace_class_(child, CLS.STARK_UI_TAB_ACTIVE, CLS.STARK_UI_TAB_INACTIVE);
+                    _replace_class_(child, _classes_.STARK_UI_TAB_ACTIVE, _classes_.STARK_UI_TAB_INACTIVE);
                 }
             }
             for (let x = 0; x < content_area.childElementCount; ++x) {
@@ -983,22 +983,22 @@ function _tabbed_window_(props = {}) {
         }
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }),
         _s_cmp_("div", {
-            className: CLS.STARK_UI_TABBED_WINDOW_TITLE_BAR,
+            className: _classes_.STARK_UI_TABBED_WINDOW_TITLE_BAR,
             id: title_bar_id
         }, ...properties.tabs.map((tab, index) => {
             return _s_cmp_("div", {
-                className: index === 0 ? CLS.STARK_UI_TAB_ACTIVE : CLS.STARK_UI_TAB_INACTIVE,
+                className: index === 0 ? _classes_.STARK_UI_TAB_ACTIVE : _classes_.STARK_UI_TAB_INACTIVE,
                 onClick: (event) => {
                     set_tab_index(event, index)
                 }
             }, tab.title);
         })),
         _s_cmp_("div", {
-            className: CLS.STARK_UI_TABBED_WINDOW_CONTENT_AREA,
+            className: _classes_.STARK_UI_TABBED_WINDOW_CONTENT_AREA,
             id: content_area_id
         }, ...properties.tabs.map((tab, index) => {
             return _s_cmp_("div", {
-                className: index === 0 ? "" : CLS.STARK_UI_HIDDEN,
+                className: index === 0 ? "" : _classes_.STARK_UI_HIDDEN,
             }, tab.component);
         })));
 }
@@ -1007,7 +1007,7 @@ function _tabbed_view_(props = {}) {
     let properties = _load_custom_props_({
         tabs: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_TABBED_VIEW);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_TABBED_VIEW);
     let title_bar_id = _get_random_string_(),
         content_area_id = _get_random_string_(),
         get_title_bar_element=()=>{
@@ -1022,9 +1022,9 @@ function _tabbed_view_(props = {}) {
             for (let x = 0; x < title_bar.childElementCount; ++x) {
                 let child = title_bar.children.item(x);
                 if (index === x) {
-                    _replace_class_(child, CLS.STARK_UI_TAB_INACTIVE, CLS.STARK_UI_TAB_ACTIVE);
+                    _replace_class_(child, _classes_.STARK_UI_TAB_INACTIVE, _classes_.STARK_UI_TAB_ACTIVE);
                 } else {
-                    _replace_class_(child, CLS.STARK_UI_TAB_ACTIVE, CLS.STARK_UI_TAB_INACTIVE);
+                    _replace_class_(child, _classes_.STARK_UI_TAB_ACTIVE, _classes_.STARK_UI_TAB_INACTIVE);
                 }
             }
             for (let x = 0; x < content_area.childElementCount; ++x) {
@@ -1038,13 +1038,13 @@ function _tabbed_view_(props = {}) {
         }
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }),
         _s_cmp_("div", {
-            className: CLS.STARK_UI_TABBED_VIEW_HEADER,
+            className: _classes_.STARK_UI_TABBED_VIEW_HEADER,
         }, _s_cmp_("div", {
-            className: CLS.STARK_UI_TABBED_VIEW_TITLE_BAR,
+            className: _classes_.STARK_UI_TABBED_VIEW_TITLE_BAR,
             id: title_bar_id
         }, ...properties.tabs.map((tab, index) => {
             return _s_cmp_("div", {
-                className: index === 0 ? CLS.STARK_UI_TAB_ACTIVE : CLS.STARK_UI_TAB_INACTIVE,
+                className: index === 0 ? _classes_.STARK_UI_TAB_ACTIVE : _classes_.STARK_UI_TAB_INACTIVE,
                 style: {
                     borderLeft: index === 0 ? "1px solid transparent" : "1px solid lightgray"
                 },
@@ -1054,18 +1054,18 @@ function _tabbed_view_(props = {}) {
             }, tab.title);
         }))),
         _s_cmp_("div", {
-            className: CLS.STARK_UI_TABBED_VIEW_CONTENT_AREA,
+            className: _classes_.STARK_UI_TABBED_VIEW_CONTENT_AREA,
             id: content_area_id
         }, ...properties.tabs.map((tab, index) => {
             return _s_cmp_("div", {
-                className: index === 0 ? "" : CLS.STARK_UI_HIDDEN,
+                className: index === 0 ? "" : _classes_.STARK_UI_HIDDEN,
             }, tab.component);
         })));
 }
 
 function _canvas_(props = {}) {
     let properties = _load_custom_props_({}, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_CANVAS);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_CANVAS);
     return _s_cmp_("canvas", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -1073,7 +1073,7 @@ function _ordered_list_(props = {}) {
     let properties = _load_custom_props_({
         listItems: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_ORDERED_LIST);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_ORDERED_LIST);
     return _s_cmp_("ol", Object.assign(properties, { key: _get_random_string_() }), ...properties.listItems);
 }
 
@@ -1081,7 +1081,7 @@ function _unordered_list_(props = {}) {
     let properties = _load_custom_props_({
         listItems: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_UNORDERED_LIST);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_UNORDERED_LIST);
     return _s_cmp_("ul", Object.assign(properties, { key: _get_random_string_() }), ...properties.listItems);
 }
 
@@ -1089,7 +1089,7 @@ function _list_item_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_LIST_ITEM);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_LIST_ITEM);
     return _s_cmp_("li", Object.assign(properties, { key: _get_random_string_() }), properties.component || properties.text);
 }
 
@@ -1097,7 +1097,7 @@ function _table_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_TABLE);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_TABLE);
     return _s_cmp_("table", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1105,7 +1105,7 @@ function _table_heading_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_TABLE_HEADING);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_TABLE_HEADING);
     return _s_cmp_("thead", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1113,7 +1113,7 @@ function _table_footer_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_TABLE_FOOTER);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_TABLE_FOOTER);
     return _s_cmp_("tfoot", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1121,7 +1121,7 @@ function _table_body_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_TABLE_BODY);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_TABLE_BODY);
     return _s_cmp_("tbody", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1129,7 +1129,7 @@ function _table_row_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_TABLE_ROW);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_TABLE_ROW);
     return _s_cmp_("tr", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1137,7 +1137,7 @@ function _table_header_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_TABLE_HEADER);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_TABLE_HEADER);
     return _s_cmp_("th", Object.assign(properties, { key: _get_random_string_() }), properties.component || properties.text);
 }
 
@@ -1145,7 +1145,7 @@ function _table_data_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_TABLE_DATA);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_TABLE_DATA);
     return _s_cmp_("td", Object.assign(properties, { key: _get_random_string_() }), properties.component || properties.text);
 }
 
@@ -1153,19 +1153,19 @@ function _caption_(props = {}) {
     let properties = _load_custom_props_({
         text: ""
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_CAPTION);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_CAPTION);
     return _s_cmp_("caption", Object.assign(properties, { key: _get_random_string_() }), properties.component || properties.text);
 }
 
 function _embed_(props = {}) {
     let properties = _load_custom_props_({}, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_EMBED);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_EMBED);
     return _s_cmp_("embed", Object.assign(properties, { key: _get_random_string_() }));
 }
 
 function _iframe_(props = {}) {
     let properties = _load_custom_props_({}, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_IFRAME);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_IFRAME);
     return _s_cmp_("iframe", Object.assign(properties, { key: _get_random_string_() }));
 }
 
@@ -1173,7 +1173,7 @@ function _layout_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_LAYOUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_LAYOUT);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1181,7 +1181,7 @@ function _vertical_layout_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_VERTICAL_LAYOUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_VERTICAL_LAYOUT);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1189,7 +1189,7 @@ function _horizontal_layout_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_HORIZONTAL_LAYOUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_HORIZONTAL_LAYOUT);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1197,7 +1197,7 @@ function _relative_layout_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_RELATIVE_LAYOUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_RELATIVE_LAYOUT);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1205,7 +1205,7 @@ function _grid_layout_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_GRID_LAYOUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_GRID_LAYOUT);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1213,7 +1213,7 @@ function _flow_layout_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_FLOW_LAYOUT);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_FLOW_LAYOUT);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1221,7 +1221,7 @@ function _scroll_window_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_SCROLL_WINDOW);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_SCROLL_WINDOW);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1229,7 +1229,7 @@ function _horizontal_scroll_window_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_SCROLL_WINDOW_HORIZONTAL);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_SCROLL_WINDOW_HORIZONTAL);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1237,7 +1237,7 @@ function _vertical_scroll_window_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_SCROLL_WINDOW_VERTICAL);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_SCROLL_WINDOW_VERTICAL);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1246,7 +1246,7 @@ function _collapse_view_(props = {}) {
         title:"",
         component: null
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_COLLAPSE_VIEW);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_COLLAPSE_VIEW);
     let dropdown_id = _get_random_string_(),
         get_dropdown_element=()=>{
             return _element_loader_.fromId(dropdown_id);
@@ -1257,13 +1257,13 @@ function _collapse_view_(props = {}) {
         }
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }),
         _s_cmp_("div", {
-            className: CLS.STARK_UI_COLLAPSE_VIEW_TITLE_BAR,
+            className: _classes_.STARK_UI_COLLAPSE_VIEW_TITLE_BAR,
             onClick: (event) => {
                 toggle_component(event);
             }
         }, properties.title),
         _s_cmp_("div", {
-            className: [CLS.STARK_UI_COLLAPSE_VIEW_DROPDOWN,CLS.STARK_UI_HIDDEN].join(" "),
+            className: [_classes_.STARK_UI_COLLAPSE_VIEW_DROPDOWN,_classes_.STARK_UI_HIDDEN].join(" "),
             id: dropdown_id
         }, properties.component));
 }
@@ -1276,7 +1276,7 @@ function _navigation_bar_(props = {}) {
         menuButton: null,
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_NAVIGATION_BAR);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_NAVIGATION_BAR);
     let drawer_id = _get_random_string_(),
         drawer_content_id=_get_random_string_(),
         menu_id = _get_random_string_(),
@@ -1297,29 +1297,29 @@ function _navigation_bar_(props = {}) {
             let menu = get_menu_element(),
                 content=get_menu_content_element();
             _show_element_(menu);
-            _add_class_(content,CLS.STARK_UI_SLIDE_IN_RIGHT_FAST)
+            _add_class_(content,_classes_.STARK_UI_SLIDE_IN_RIGHT_FAST)
         },
         open_drawer = (event) => {
             let drawer = get_drawer_element(),
                 content=get_drawer_content_element();
             _show_element_(drawer);
-            _add_class_(content,CLS.STARK_UI_SLIDE_IN_LEFT_FAST);
+            _add_class_(content,_classes_.STARK_UI_SLIDE_IN_LEFT_FAST);
         },
         close_menu = (event) => {
             let menu = get_menu_element(),
                 content=get_menu_content_element();
-            _remove_class_(content,CLS.STARK_UI_SLIDE_IN_RIGHT_FAST)
+            _remove_class_(content,_classes_.STARK_UI_SLIDE_IN_RIGHT_FAST)
             _hide_element_(menu);
         },
         close_drawer = (event) => {
             let drawer = get_drawer_element(),
                 content=get_drawer_content_element();
-            _remove_class_(content,CLS.STARK_UI_SLIDE_IN_LEFT_FAST)
+            _remove_class_(content,_classes_.STARK_UI_SLIDE_IN_LEFT_FAST)
             _hide_element_(drawer);
         },
         toggle_drawer = (event) => {
             let drawer = get_drawer_element();
-            if(_includes_class_(drawer,CLS.STARK_UI_HIDDEN)){
+            if(_includes_class_(drawer,_classes_.STARK_UI_HIDDEN)){
                 open_drawer(event);
             }else{
                 close_drawer(event);
@@ -1327,14 +1327,14 @@ function _navigation_bar_(props = {}) {
         },
         toggle_menu = (event) => {
             let menu = get_menu_element();
-            if(_includes_class_(menu,CLS.STARK_UI_HIDDEN)){
+            if(_includes_class_(menu,_classes_.STARK_UI_HIDDEN)){
                 open_menu(event);
             }else{
                 close_menu(event);
             }
         };
     let drawer = properties.navigationDrawer === null ? null : _s_cmp_("div", {
-            className: [CLS.STARK_UI_NAVIGATION_BAR_NAVIGATION_DRAWER,CLS.STARK_UI_HIDDEN].join(" "),
+            className: [_classes_.STARK_UI_NAVIGATION_BAR_NAVIGATION_DRAWER,_classes_.STARK_UI_HIDDEN].join(" "),
             id: drawer_id,
             onClick: (event) => {
                 event.stopPropagation();
@@ -1342,14 +1342,14 @@ function _navigation_bar_(props = {}) {
                 close_menu(event);
             }
         }, _s_cmp_("div", {
-            className: CLS.STARK_UI_NAVIGATION_BAR_NAVIGATION_DRAWER_CONTENT,
+            className: _classes_.STARK_UI_NAVIGATION_BAR_NAVIGATION_DRAWER_CONTENT,
             id:drawer_content_id,
             onClick: (event) => {
                 event.stopPropagation();
             }
         }, properties.navigationDrawer)),
         menu = properties.menuDrawer === null ? null : _s_cmp_("div", {
-            className: [CLS.STARK_UI_NAVIGATION_BAR_NAVIGATION_MENU,CLS.STARK_UI_HIDDEN].join(" "),
+            className: [_classes_.STARK_UI_NAVIGATION_BAR_NAVIGATION_MENU,_classes_.STARK_UI_HIDDEN].join(" "),
             id: menu_id,
             onClick: (event) => {
                 event.stopPropagation();
@@ -1357,7 +1357,7 @@ function _navigation_bar_(props = {}) {
                 close_menu(event);
             }
         }, _s_cmp_("div", {
-            className: CLS.STARK_UI_NAVIGATION_BAR_NAVIGATION_MENU_CONTENT,
+            className: _classes_.STARK_UI_NAVIGATION_BAR_NAVIGATION_MENU_CONTENT,
             id:menu_content_id,
             onClick: (event) => {
                 event.stopPropagation();
@@ -1412,7 +1412,7 @@ function _footer_bar_(props = {}) {
     let properties = _load_custom_props_({
         components: []
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_FOOTER_BAR);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_FOOTER_BAR);
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), ...properties.components);
 }
 
@@ -1422,7 +1422,7 @@ function _activity_(props = {}) {
         navigationBar: null,
         footerBar: null
     }, props);
-    properties = _load_custom_class_(properties, CLS.STARK_UI_ACTIVITY);
+    properties = _load_custom_class_(properties, _classes_.STARK_UI_ACTIVITY);
     properties = _load_custom_style_(properties, {
         paddingTop: properties.navigationBar === null ? "0px" : "50px",
         paddingBottom: properties.footerBar === null ? "0px" : "50px"
@@ -1512,13 +1512,13 @@ function _show_dialog_(props = {}) {
             _close_dialog_(dialog_id);
         };
     let component = _s_cmp_("div", {
-        className: CLS.STARK_UI_DIALOG_WINDOW,
+        className: _classes_.STARK_UI_DIALOG_WINDOW,
         onClick: (event) => {
             event.stopPropagation();
             close_dialog(event);
         },
     }, _s_cmp_("div", {
-            className: [CLS.STARK_UI_DIALOG,properties.animate===true?CLS.STARK_UI_SLIDE_IN_BOTTOM_FAST:""].join(" "),
+            className: [_classes_.STARK_UI_DIALOG,properties.animate===true?_classes_.STARK_UI_SLIDE_IN_BOTTOM_FAST:""].join(" "),
             onClick: (event) => {
                 event.stopPropagation();
             },
@@ -1526,7 +1526,7 @@ function _show_dialog_(props = {}) {
                 backgroundColor: "white"
             }
         }, properties.splash === true ? null : _s_cmp_("div", {
-            className: CLS.STARK_UI_DIALOG_TITLE_BAR
+            className: _classes_.STARK_UI_DIALOG_TITLE_BAR
         }, properties.icon, properties.title, _button_({
             style: {
                 borderRadius: "100%",
@@ -1917,4 +1917,5 @@ const StarkUIComponents = {
     CreateClass: _r_cls_,
     CreateElement: _s_cmp_,
     Render: _s_rnd_,
+    Classes:_classes_
 }
