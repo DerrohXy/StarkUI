@@ -1424,8 +1424,8 @@ function _activity_(props = {}) {
     }, props);
     properties = _load_custom_class_(properties, _classes_.STARK_UI_ACTIVITY);
     properties = _load_custom_style_(properties, {
-        paddingTop: properties.navigationBar === null ? "0px" : "50px",
-        paddingBottom: properties.footerBar === null ? "0px" : "50px"
+        paddingTop: properties.navigationBar === null ? "0px" : "60px",
+        paddingBottom: properties.footerBar === null ? "0px" : "60px"
     });
     return _s_cmp_("div", Object.assign(properties, { key: _get_random_string_() }), properties.mainComponent, properties.footerBar, properties.navigationBar);
 }
